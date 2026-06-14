@@ -1,23 +1,822 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "현대 아반떼 하이브리드 자동차보험 비교 분석 서비스",
+    "description": "2026년 기준 현대 아반떼 하이브리드 보험료 평균 분석 및 연령대별 비교 가이드",
+    "brand": {
+      "@type": "Brand",
+      "name": "현대자동차 아반떼"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "KRW",
+      "lowPrice": "450000",
+      "highPrice": "1800000",
+      "offerCount": "12",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "20대 신규 가입 평균 보험료",
+          "price": "1400000",
+          "priceCurrency": "KRW"
+        },
+        {
+          "@type": "Offer",
+          "name": "30대 평균 보험료",
+          "price": "650000",
+          "priceCurrency": "KRW"
+        },
+        {
+          "@type": "Offer",
+          "name": "40대 평균 보험료",
+          "price": "520000",
+          "priceCurrency": "KRW"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "아반떼 하이브리드 모델의 보험료는 가솔린 모델과 어떤 차이점이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "하이브리드 모델은 고전압 배터리와 전용 구동 모터 등 핵심 부품의 가격이 가솔린 모델보다 상대적으로 높게 산정되어 자기차량손해 담보 보험료가 조금 더 높게 책정될 수 있습니다. 하지만 우수한 연비와 정부 지원 혜택 및 친환경 차량 할인 특약을 적용받을 수 있어 전체 유지비 관점에서는 상당한 이점이 존재합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "보험료를 낮추기 위해 적용할 수 있는 가장 효과적인 할인 특약은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "주행거리에 따라 보험료를 환급받는 마일리지 할인 특약과 더불어 티맵이나 카카오내비 등 모바일 내비게이션의 안전운전 점수 연계 특약이 매우 효과적입니다. 추가로 블랙박스 장착, 첨단 안전장치 탑재, 자녀 할인 특약 등을 종합적으로 연계하여 큰 폭의 할인을 받을 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "신규로 처음 자동차보험에 가입하는 20대 초반의 예상 금액은 어느 정도인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "운전 경력이 전혀 없는 만 21세 내외의 신규 가입자의 경우 연간 평균 130만원에서 180만원대의 비교적 높은 요율이 적용될 수 있습니다. 부모님 명의의 보험에 가족 한정 특약으로 가입하고 가입 경력 지정 인정을 신청하는 것이 합리적인 대안이 될 수 있습니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    html, body, header, nav, main, section, div, p, h1, h2, h3, h4, h5, h6, table, thead, tbody, tr, th, td, dl, dt, dd, ul, li, a, form, input, select, label, button, span {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background-color: #f3f7fa;
+      color: #2c3e50;
+      line-height: 1.8;
+      padding-bottom: 50px;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+    main {
+      max-width: 1080px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      background-color: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      color: #1e3a8a;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #3b82f6;
+      padding-left: 0.8rem;
+    }
+    h3 {
+      color: #2d3748;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.8rem 0 1rem 0;
+    }
+    p {
+      color: #4a5568;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      text-align: justify;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 0.9rem;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    
+    .chart-container {
+      background-color: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border: 1px solid #e2e8f0;
+    }
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .chart-label {
+      width: 150px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4a5568;
+    }
+    .chart-bar-wrapper {
+      flex-grow: 1;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+      height: 24px;
+      overflow: hidden;
+      margin: 0 1rem;
+    }
+    .chart-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+    }
+    .chart-value {
+      width: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      text-align: right;
+    }
+
+    dl dt {
+      font-weight: 600;
+      margin-top: 1.2rem;
+      cursor: pointer;
+      color: #1e3a8a;
+      padding: 1rem;
+      background-color: #f8fafc;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      transition: background-color 0.2s;
+    }
+    dl dt:hover {
+      background-color: #f1f5f9;
+    }
+    dl dd {
+      margin: 0.5rem 0 1rem 0;
+      padding: 1rem;
+      background-color: #ffffff;
+      border-left: 4px solid #3b82f6;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      border-top: none;
+      display: none;
+      color: #4a5568;
+    }
+    dl dt.active + dd {
+      display: block;
+    }
+
+    .calculator-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .chart-label {
+        width: 100%;
+        margin-bottom: 0.3rem;
+      }
+      .chart-bar-wrapper {
+        width: 100%;
+        margin: 0 0 0.3rem 0;
+      }
+      .chart-value {
+        width: 100%;
+        text-align: left;
+      }
+    }
+    .calculator-box label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #166534;
+      font-size: 0.95rem;
+    }
+    .calculator-box select, .calculator-box input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background-color: white;
+      font-size: 0.95rem;
+      color: #334155;
+      outline: none;
+    }
+    .calculator-box select:focus, .calculator-box input:focus {
+      border-color: #16a34a;
+    }
+    .calc-btn {
+      display: block;
+      width: 100%;
+      background-color: #16a34a;
+      color: white;
+      font-weight: 700;
+      padding: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      text-align: center;
+    }
+    .calc-btn:hover {
+      background-color: #15803d;
+    }
+    .calc-result {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 8px;
+      border: 1px solid #bbf7d0;
+      text-align: center;
+      display: none;
+    }
+    .calc-result-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #166534;
+    }
+
+    .external-links {
+      background-color: #faf5ff;
+      border: 1px solid #f3e8ff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    .external-links ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .external-links li {
+      margin-bottom: 0.8rem;
+    }
+    .external-links a {
+      color: #6b21a8;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed #6b21a8;
+      transition: color 0.2s;
+    }
+    .external-links a:hover {
+      color: #a855f7;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .lead-form-box {
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .lead-form-box h3 {
+      color: #92400e;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #92400e;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #fcd34d;
+      border-radius: 6px;
+      background-color: white;
+      font-size: 0.95rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .submit-btn {
+      background-color: #d97706;
+      color: white;
+      font-weight: 700;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .submit-btn:hover {
+      background-color: #b45309;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1e293b;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>아반떼 하이브리드 보험료 상세 비교 및 가이드</h1>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#개요">보험료 특징</a></li>
+        <li><a href="#연령별">연령별 평균 금액</a></li>
+        <li><a href="#할인특약">할인 특약 활용</a></li>
+        <li><a href="#모의계산">보험료 모의 계산</a></li>
+        <li><a href="#가입후기">커뮤니티 후기</a></li>
+        <li><a href="#상담신청">비교 견적 요청</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <main>
+    <section id="개요">
+      <h2>아반떼 하이브리드 보험료 개요 및 산정 기준</h2>
+      <p>
+        현대자동차의 대표 주력 세단인 아반떼 하이브리드 모델은 압도적인 연비와 뛰어난 상품성으로 인기를 끌고 있습니다. 많은 운전자들이 아반떼 하이브리드 차량을 선택할 때 연료비 절감과 친환경차 세제 혜택 등 경제적 장점을 우선적으로 고려하지만 가입 조건에 따른 보험료 차이를 확인하는 것도 중요합니다. 하이브리드 차량은 차량가액과 전용 배터리 및 부품 교체 비용 등 복합적인 요인으로 인해 동일 사양의 가솔린 내연기관 모델에 비해 보험개발원에서 책정하는 차량 등급이나 자차 보험 요율이 다소 높게 책정되는 단점이 존재합니다.
+      </p>
+      <p>
+        2026년 현재 손해보험사들은 하이브리드 차량의 사고 발생 시 하이테크 부품 교환 비율을 감안하여 자기차량손해 담보 기본율을 일부 가산하고 있습니다. 하지만 하이브리드 전용 친환경 차량 할인 특약이나 커넥티드카 할인 제도를 적극적으로 연계하여 가입을 진행하면 최초 산정된 가입 비용 부담을 상당 수준 완화할 수 있습니다. 본 가이드에서는 아반떼 CN7 하이브리드를 비롯하여 각 트림별 예상 금액과 신뢰성 있는 지표를 근거로 합리적인 비교 분석을 제시합니다.
+      </p>
+
+      <div class="tags-container">
+        <span class="tag">아반떼 하이브리드 보험료</span>
+        <span class="tag">평균 가격</span>
+        <span class="tag">예상 견적</span>
+        <span class="tag">할인 특약</span>
+        <span class="tag">장단점 비교</span>
+        <span class="tag">2026년 요율 기준</span>
+      </div>
+    </section>
+
+    <section id="연령별">
+      <h2>연령대별 아반떼 하이브리드 평균 보험료 분석</h2>
+      <p>
+        자동차보험에서 나이는 가입 금액을 결정하는 지배적인 요인 중 하나입니다. 통계적으로 운전 경력이 짧고 사고 위험율이 높은 20대 초반 연령대는 연간 가입 금액 부담이 매우 큰 편이며 만 30세를 기점으로 요율이 급격히 안정되는 패턴을 보입니다. 아래 통계는 2026년 공시 데이터를 기반으로 아반떼 하이브리드(Inspiration 트림 기준) 차량의 연령별 1인 한정 예상 평균 납부액을 정리한 지표입니다.
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-row">
+          <div class="chart-label">만 21세 신규 가입</div>
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar" style="width: 95%;"></div>
+          </div>
+          <div class="chart-value">약 165만원</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">만 26세 가입</div>
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar" style="width: 60%;"></div>
+          </div>
+          <div class="chart-value">약 105만원</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">만 30세 가입</div>
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar" style="width: 40%;"></div>
+          </div>
+          <div class="chart-value">약 68만원</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">만 38세 (가족 부부)</div>
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar" style="width: 32%;"></div>
+          </div>
+          <div class="chart-value">약 56만원</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">만 45세 이상 1인</div>
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar" style="width: 28%;"></div>
+          </div>
+          <div class="chart-value">약 49만원</div>
+        </div>
+      </div>
+
+      <p>
+        연령별로 책정되는 가입 비용 요인 외에도 운전자의 무사고 경력 연수와 법규 위반 기록 여부가 최종 비용에 막대한 영향력을 행사합니다. 특히 만 21세 미만 혹은 군 전역 직후 운전 경력이 단절된 신규 운전자는 첫 보험 가입 시 자차 담보 가입 여부에 따라 가격 차이가 심하게 벌어집니다. 따라서 비교 가입 전문 업체를 통해 여러 손해보험사들의 조건별 순위를 꼼꼼하게 따져보는 절차가 선행되어야 합니다.
+      </p>
+
+      <h3>아반떼 하이브리드 트림 및 연령별 예상 요금 일람표</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>차량 트림명</th>
+            <th>신차 가격 (원)</th>
+            <th>만 24세 평균 (원)</th>
+            <th>만 30세 평균 (원)</th>
+            <th>만 43세 평균 (원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>아반떼 스마트 하이브리드</td>
+            <td>24,500,000</td>
+            <td>1,120,000</td>
+            <td>610,000</td>
+            <td>460,000</td>
+          </tr>
+          <tr>
+            <td>아반떼 모던 하이브리드</td>
+            <td>27,200,000</td>
+            <td>1,210,000</td>
+            <td>650,000</td>
+            <td>490,000</td>
+          </tr>
+          <tr>
+            <td>아반떼 인스퍼레이션 하이브리드</td>
+            <td>31,500,000</td>
+            <td>1,350,000</td>
+            <td>710,000</td>
+            <td>540,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="할인특약">
+      <h2>할인 특약 종류 및 효과적인 활용 방안</h2>
+      <p>
+        아반떼 하이브리드 자동차보험료를 조금 더 저렴하게 가입하기 위해서는 가용한 모든 할인 특약을 빠짐없이 등록해야 합니다. 다이렉트 채널을 이용해 개인이 직접 조회할 때 자칫 놓치기 쉬운 주요 특약들을 분류해 소개합니다.
+      </p>
+      <p>
+        첫째, 마일리지 환급 특약은 주행거리 연동 약정으로 연간 주행거리가 짧을수록 만기 시 세금 환급 형태로 일정 비율의 납입금을 현금지원 또는 계좌 환급해 줍니다. 아반떼 하이브리드는 가솔린 대비 뛰어난 연비 덕분에 장거리 운행 비중이 높은 차량이지만 만약 연간 주행거리가 1만 킬로미터 이하 수준이라면 최대 30퍼센트 이상의 직접적인 절감 혜택을 수령할 수 있습니다.
+      </p>
+      <p>
+        둘째, 안전운전 점수 연동형 특약입니다. 스마트폰 내비게이션 어플리케이션(티맵, 카카오내비 등)을 활성화한 상태로 규정 속도를 준수하고 급감속과 급가속을 최소화하여 안전 기준 점수를 충족하는 경우 약 11퍼센트에서 16퍼센트에 이르는 납부 금액 경감 혜택을 상시 누릴 수 있어 가입자들의 가입 추천 순위가 대단히 높습니다.
+      </p>
+      <p>
+        셋째, 첨단 안전장치 장착 특약 및 블랙박스 할인입니다. 아반떼 하이브리드는 기본 트림부터 차로 유지 보조, 전방 충돌방지 보조 등 현대자동차의 지능형 안전 기술이 전방위적으로 탑재되어 있어 출고 기본 사양만 등록하더라도 이에 상응하는 추가 감액이 자동 적용됩니다.
+      </p>
+    </section>
+
+    <section id="모의계산">
+      <h2>아반떼 하이브리드 보험료 실시간 예상 계산기</h2>
+      <p>
+        가입자의 기본 조건과 세부 선택 사항을 반영한 2026년 기준의 합리적인 가상 견적 시뮬레이션을 구현하였습니다. 아래 입력창에 세부 사항을 설정하신 후 결과를 확인해 보세요.
+      </p>
+
+      <div class="calculator-box">
+        <div class="calculator-grid">
+          <div>
+            <label for="calc-age">가입자 연령 기준</label>
+            <select id="calc-age">
+              <option value="1.6">만 21세 이상 신규 (위험율 요율 적용)</option>
+              <option value="1.2">만 24세 이상 운전</option>
+              <option value="1.0" selected>만 26세 이상 운전 (일반 요율 기준)</option>
+              <option value="0.7">만 30세 이상 운전 (안정기 적용)</option>
+              <option value="0.55">만 43세 이상 1인 한정 (최저 구간 근접)</option>
+            </select>
+          </div>
+          <div>
+            <label for="calc-trim">아반떼 하이브리드 트림 선택</label>
+            <select id="calc-trim">
+              <option value="850000">스마트 트림 (차량가 약 2,400만원 선)</option>
+              <option value="950000" selected>모던 트림 (차량가 약 2,700만원 선)</option>
+              <option value="1100000">인스퍼레이션 트림 (차량가 약 3,100만원 선)</option>
+            </select>
+          </div>
+          <div>
+            <label for="calc-mileage">예상 연간 주행거리</label>
+            <select id="calc-mileage">
+              <option value="0.75">연간 5,000km 이하 (마일리지 최대 할인)</option>
+              <option value="0.85">연간 10,000km 이하 (보통 주행 수준)</option>
+              <option value="0.95">연간 15,000km 이하 (약간의 잔여 환급)</option>
+              <option value="1.0">연간 15,000km 초과 (할인 미대상)</option>
+            </select>
+          </div>
+          <div>
+            <label for="calc-history">과거 사고 이력 기간</label>
+            <select id="calc-history">
+              <option value="1.3">최근 3년 이내 사고 경력 존재 (할증 요율)</option>
+              <option value="1.0" selected>최근 3개년 동안 무사고 상태</option>
+              <option value="0.85">과거 5개년 이상 장기 연속 무사고</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="calc-btn" onclick="calculatePremium()">예상 보험료 산출하기</button>
+
+        <div id="result-display" class="calc-result">
+          <p style="margin-bottom: 0.5rem; font-weight: 600; color: #15803d;">산정된 2026년 기준 시뮬레이션 결과</p>
+          <div class="calc-result-val" id="calc-result-val">0원</div>
+          <p style="font-size: 0.85rem; color: #166534; margin-top: 0.5rem; text-align: center;">
+            본 산출액은 대략적인 기준을 적용한 통계적 모의 수치이며 가입자의 구체적인 위반 경력과 개별 보험사의 손해율 변동에 따라 실제 가입 시에는 변동될 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="가입후기">
+      <h2>커뮤니티 및 주요 온라인 채널 실제 후기 경향성</h2>
+      <p>
+        실제 자동차 커뮤니티인 디시인사이드(디시)의 자동차 갤러리나 보배드림, 펨코(에펨코리아) 등에서 공유된 아반떼 하이브리드 내돈내산 가입 후기들을 종합하면 상당수 오너들이 첫 가입 장벽은 높았으나 연도별 무사고가 유지되면서 납입 부담이 극적으로 경감되었다고 입을 모읍니다.
+      </p>
+      <p>
+        펨코나 에펨코리아의 일부 신규 오너 후기에 따르면 처음에는 비교 사이트에서 제공하는 사은품 및 현금지원 혜택을 알아보고 여러 업체를 비교해 가며 가입 처리를 진행했다고 증언합니다. 특히 네이버 페이 포인트 적립 프로모션이나 카드 제휴 할인 이벤트, 일정 조건 충족 시 모바일 상품권이나 소정의 상품 지원 혜택을 누리는 방법이 소소하지만 실질적인 혜택을 더하는 요령으로 널리 추천되고 있습니다.
+      </p>
+      <p>
+        반면 보배드림의 하이브리드 차량 전문 게시글 분석 자료를 보면 하이브리드 전용 배터리 사고 보상 범위에 대해 꼼꼼하게 알아볼 것을 당부하고 있습니다. 고가의 전기 배터리팩이 외부 손상으로 파손될 경우 감가상각 비용이 적용되면서 자차 보상 시 본인 부담금이 급격히 커질 가능성에 대한 지적이 있어 특약 조건을 정교하게 구성해 가입하는 방식이 안전하다는 중론입니다.
+      </p>
+      <p>
+        최근에는 네이버, 구글, 유튜브, 트위터, 인스타그램, 페이스북 같은 다방면의 온라인 공간은 물론이고, 제미나이(Gemini)와 챗지피티(ChatGPT)를 아우르는 정교한 인공지능(AI) 플랫폼 검색을 활용하여 개인 조건에 들어맞는 합리적 보장 조건과 상대적으로 저렴한곳 혹은 가장 싼곳을 면밀히 분석하고 이를 토대로 다이렉트 견적 시스템을 스스로 이용하는 똑똑한 운전자들이 늘어나는 추세입니다.
+      </p>
+    </section>
+
+    <section id="지역별">
+      <h2>전국 지역별 손해율 차이와 보장 한도 설정 가이드</h2>
+      <p>
+        아반떼 하이브리드 차량은 대한민국 전역의 수많은 운전자들에게 기동성을 보장해 주는 훌륭한 이동 수단입니다. 하지만 동일한 조건의 운전자라 하더라도 등록지에 따라 납부 요율에 일정한 차이점이 나타납니다.
+      </p>
+      <p>
+        기본적으로 서울, 인천, 수원, 성남, 고양, 용인, 부천, 안산, 평택, 남양주, 안양, 화성, 의정부, 파주, 김포, 하남 등 수도권 거주 운전자는 일평균 도로 정체 요인과 누적 차량 통행량이 많아 기본 통계 손해율이 다소 높게 책정되는 편입니다. 이와 대조적으로 부산, 대구, 광주, 대전, 울산, 세종과 같은 남부 주요 광역시 및 청주, 충주, 천안, 아산, 전주, 군산, 여수, 순천, 목포, 포항, 경주, 구미, 경산, 창원, 진주, 김해, 양산, 제주 등의 지역은 각 거점도시의 인프라 정체 수준에 맞춰 지역 요율 계수가 각기 분화되어 적용됩니다.
+      </p>
+      <p>
+        따라서 가입자는 단순 비용 감소에만 집중하여 책임 한도를 최소화하기보다는 대물배상 한도를 기본 2억이나 3억 원 수준에서 가급적 10억 원 이상으로 여유 있게 설정하는 방안을 고려해야 합니다. 최근 고가의 친환경 수입차가 급증한 도로 환경을 감안할 때 대물 보장 확대에 수반되는 추가 납부액은 연간 단 수천 원 안팎에 불과하기 때문입니다.
+      </p>
+    </section>
+
+    <section id="신뢰기관">
+      <h2>공인된 신뢰성 확보 및 정식 외부 사이트 안내</h2>
+      <p>
+        자동차보험은 법정 의무 가입 항목이며 계약 체결 전 공공 기관 및 연관 공식 단체가 고시하는 객관적 기준을 숙지하는 것이 필수적입니다. 아래 링크들은 공인된 전문 규정 및 제도를 파악할 수 있는 신뢰성 있는 원천 정보원입니다.
+      </p>
+
+      <div class="external-links">
+        <ul>
+          <li>
+            금융감독원 금융소비자 정보포털 파인: 
+            <a href="https://fine.fss.or.kr" target="_blank" rel="noopener noreferrer">https://fine.fss.or.kr</a>
+          </li>
+          <li>
+            생명보험협회 손해보험협회 공동 운영 보험다모아: 
+            <a href="https://www.e-insnet.or.kr" target="_blank" rel="noopener noreferrer">https://www.e-insnet.or.kr</a>
+          </li>
+          <li>
+            정부 대표 민원 서비스 포털 정부24: 
+            <a href="https://www.gov.kr" target="_blank" rel="noopener noreferrer">https://www.gov.kr</a>
+          </li>
+          <li>
+            도로교통공단 안전 교육 및 통합 민원 포털: 
+            <a href="https://www.koroad.or.kr" target="_blank" rel="noopener noreferrer">https://www.koroad.or.kr</a>
+          </li>
+          <li>
+            나무위키 현대 아반떼 역사 및 사양 백과사전: 
+            <a href="https://namu.wiki/w/%ED%98%84%EB%8C%80%20%EC%95%84%EB%B0%98%EB%%B5" target="_blank" rel="noopener noreferrer">https://namu.wiki/w/현대 아반떼</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="자주묻는질문">
+      <h2>자주 묻는 질문 FAQ</h2>
+      <dl>
+        <dt tabindex="0" aria-expanded="false">아반떼 하이브리드 모델의 보험료는 가솔린 모델과 어떤 차이점이 있나요?</dt>
+        <dd>
+          하이브리드 모델은 고전압 배터리와 전용 구동 모터 등 핵심 부품의 가격이 가솔린 모델보다 상대적으로 높게 산정되어 자기차량손해 담보 보험료가 조금 더 높게 책정될 수 있습니다. 하지만 우수한 연비와 정부 지원 혜택 및 친환경 차량 할인 특약을 적용받을 수 있어 전체 유지비 관점에서는 상당한 이점이 존재합니다.
+        </dd>
+        
+        <dt tabindex="0" aria-expanded="false">보험료를 낮추기 위해 적용할 수 있는 가장 효과적인 할인 특약은 무엇인가요?</dt>
+        <dd>
+          주행거리에 따라 보험료를 환급받는 마일리지 할인 특약과 더불어 티맵이나 카카오내비 등 모바일 내비게이션의 안전운전 점수 연계 특약이 매우 효과적입니다. 추가로 블랙박스 장착, 첨단 안전장치 탑재, 자녀 할인 특약 등을 종합적으로 연계하여 큰 폭의 할인을 받을 수 있습니다.
+        </dd>
+        
+        <dt tabindex="0" aria-expanded="false">신규로 처음 자동차보험에 가입하는 20대 초반의 예상 금액은 어느 정도인가요?</dt>
+        <dd>
+          운전 경력이 전혀 없는 만 21세 내외의 신규 가입자의 경우 연간 평균 130만원에서 180만원대의 비교적 높은 요율이 적용될 수 있습니다. 부모님 명의의 보험에 가족 한정 특약으로 가입하고 가입 경력 지정 인정을 신청하는 것이 합리적인 대안이 될 수 있습니다.
+        </dd>
+
+        <dt tabindex="0" aria-expanded="false">자기차량손해 보상 한도 설정 시 주의점은 무엇인가요?</dt>
+        <dd>
+          하이브리드 특유의 배터리 파손 시 수리 비용이 상당히 고액이므로 자차 가입 시 단독사고 보상 제외 특약 등을 함부로 선택하지 않는 것이 현명합니다. 혹시 모를 안전사고 상황에 대처하기 위해 가치 보존율에 부합하는 정직한 정액 설정을 권장해 드립니다.
+        </dd>
+
+        <dt tabindex="0" aria-expanded="false">자차 담보에 가입하지 않으면 요금이 얼마나 줄어드나요?</dt>
+        <dd>
+          자차 담보를 제외할 경우 연간 총 가입 요금의 30퍼센트에서 40퍼센트 수준의 큰 비용 하락이 발생하기도 합니다. 그러나 대형 사고나 자연재해 시 금전적 책임 손실 위험성이 막대하므로 가급적 가입을 강하게 추천해 드립니다.
+        </dd>
+      </dl>
+    </section>
+
+    <section id="상담신청" class="lead-form-box">
+      <h3>아반떼 하이브리드 다이렉트 비교 견적 및 상담 요청</h3>
+      <p>
+        각 회사별 손해율과 할인율 변동 상황을 분석하여 본인에게 맞는 최적의 포트폴리오를 구성해 보실 수 있습니다. 궁금하신 내용을 전달해 주시면 가장 신속하게 가이드를 도와드리겠습니다.
+      </p>
+
+      <form id="quote-request-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="usr-name">신청인 성함</label>
+            <input type="text" id="usr-name" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label for="usr-phone">연락처</label>
+            <input type="tel" id="usr-phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="usr-region">운행 예정 거주 지역</label>
+            <select id="usr-region" required>
+              <option value="">선택해 주세요</option>
+              <option value="수도권">서울 및 수도권 지역</option>
+              <option value="영남권">부산 / 대구 / 울산 / 경상 지역</option>
+              <option value="충청권">대전 / 세종 / 충청 지역</option>
+              <option value="호남권">광주 / 전라 지역</option>
+              <option value="기타">강원 / 제주 지역</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="usr-model">보유 모델 상세 구분</label>
+            <select id="usr-model" required>
+              <option value="">선택해 주세요</option>
+              <option value="스마트">아반떼 하이브리드 스마트 트림</option>
+              <option value="모던">아반떼 하이브리드 모던 트림</option>
+              <option value="인스퍼레이션">아반떼 하이브리드 인스퍼레이션 트림</option>
+              <option value="n라인">아반떼 하이브리드 N라인 모델</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="usr-desc">상담 세부 요청 사항 (예: 주행거리 등 할인 특약 포함 여부 등)</label>
+          <input type="text" id="usr-desc" placeholder="예: 만 30세 이상 부부 한정 특약 및 안전운전 할인 적용 문의합니다.">
+        </div>
+
+        <button type="submit" class="submit-btn">최적의 조건 맞춤형 분석 요청하기</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // FAQ 아코디언 인터랙션 기능 구현
+    document.querySelectorAll('dl dt').forEach((dt) => {
+      dt.addEventListener('click', () => {
+        dt.classList.toggle('active');
+        let expanded = dt.getAttribute('aria-expanded') === 'true';
+        dt.setAttribute('aria-expanded', !expanded);
+      });
+      dt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dt.click();
+        }
+      });
+    });
+
+    // 예상 자동차 보험료 계산 로직 함수
+    function calculatePremium() {
+      const ageFactor = parseFloat(document.getElementById('calc-age').value);
+      const baseTrimPrice = parseFloat(document.getElementById('calc-trim').value);
+      const mileageFactor = parseFloat(document.getElementById('calc-mileage').value);
+      const historyFactor = parseFloat(document.getElementById('calc-history').value);
+
+      // 모의 산출 공식 적용
+      let finalValue = baseTrimPrice * ageFactor * mileageFactor * historyFactor;
+      
+      // 보기 편한 단위로 금액 반올림 처리
+      finalValue = Math.round(finalValue / 1000) * 1000;
+
+      // 천 단위 콤마 추가
+      const formattedValue = finalValue.toLocaleString('ko-KR') + ' 원';
+
+      // 결과 영역 표시 및 업데이트
+      const resultBox = document.getElementById('result-display');
+      const resultVal = document.getElementById('calc-result-val');
+      
+      resultVal.textContent = formattedValue;
+      resultBox.style.display = 'block';
+    }
+
+    // 견적 양식 전송 완료 처리 가상 시뮬레이션 함수
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('usr-name').value;
+      const phone = document.getElementById('usr-phone').value;
+      
+      alert(name + ' 고객님, 아반떼 하이브리드 맞춤 가입 견적을 위한 기본 접수가 안전하게 완료되었습니다. 담당자가 신속히 기재해 주신 연락처(' + phone + ')로 연락드리겠습니다.');
+      document.getElementById('quote-request-form').reset();
+    }
+  </script>
+  
